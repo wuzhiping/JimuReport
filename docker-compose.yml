@@ -1,0 +1,25 @@
+version: '2'
+services:
+  jimureport-mysql:
+    image: shawoo/jimureport-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+      --max_allowed_packet=128M
+    volumes:
+      - ./mysql/:/var/lib/mysql/
+    #ports:
+    #  - 3307:3306
+
+  jimureport:
+    image: shawoo/jimureport:1.5.0
+    restart: always
+    depends_on:
+      - jimureport-mysql
+    ports:
+      - 8086:8085
