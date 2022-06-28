@@ -1,5 +1,8 @@
 # JimuReport
 
+
+/jmreport/list?token=abc
+
 v1.2.0 | 20210308
 
 [![](https://img.shields.io/badge/Author-北京国炬软件-orange.svg)](http://jimureport.com)
